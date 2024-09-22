@@ -35,7 +35,6 @@ const getAllProducts = (callback) => {
         if (err) {
             callback(err, null);
         } else {
-            console.log('Productos obtenidos:', rows); // Agrega esto para depuración
             callback(null, rows);
         }
     });
