@@ -1,0 +1,35 @@
+extends ../layout
+
+block content
+  h1 Lista de Productos
+
+  a(href='/products/create' class="btn btn-primary mb-3") Nuevo Producto
+
+  table.table.table-bordered
+    thead
+      tr
+        th Nombre
+        th Categoría
+        th Tamaño
+        th Color
+        th Precio
+        th Stock
+        th Acciones
+    tbody
+      if products.length > 0
+        each product in products
+          tr
+            td #{product.name}
+            td #{product.categoryId} // Aquí puedes hacer una búsqueda para mostrar el nombre de la categoría si lo tienes
+            td #{product.size}
+            td #{product.color}
+            td #{product.price}
+            td #{product.stock}
+            td
+              a(href=`/products/${product.id}` class="btn btn-info btn-sm") Ver
+              a(href=`/products/${product.id}/edit` class="btn btn-warning btn-sm ms-2") Editar
+              form(action=`/products/${product.id}/delete` method="POST" class="d-inline ms-2")
+                button(type="submit" class="btn btn-danger btn-sm") Eliminar
+      else
+        tr
+          td(colspan="7" class="text-center") No hay productos disponibles
