@@ -40,4 +40,4 @@ const getAllProducts = (callback) => {
     });
 };
 
-module.exports = { createProduct, getProductById, getAllProducts, updateProduct};
+module.exports = { createProduct, getProductById, getAllProducts, updateProduct, deleteProduct};

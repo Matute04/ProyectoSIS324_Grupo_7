@@ -1,0 +1,31 @@
+extends ../layout 
+
+block content
+  h1 Editar Producto
+
+  form(action=`/products/${product.id}` method="POST" enctype="multipart/form-data")
+    .mb-3
+      label(for="name" class="form-label") Nombre del Producto
+      input#name.form-control(type="text" name="name" value=product.name required)
+
+    .mb-3
+      label(for="categoryId" class="form-label") Categoría
+      input#categoryId.form-control(type="number" name="categoryId" value=product.categoryId required)
+
+    .mb-3
+      label(for="size" class="form-label") Talla
+      input#size.form-control(type="text" name="size" value=product.size required)
+
+    .mb-3
+      label(for="color" class="form-label") Color
+      input#color.form-control(type="text" name="color" value=product.color required)
+
+    .mb-3
+      label(for="price" class="form-label") Precio
+      input#price.form-control(type="number" step="0.01" name="price" value=product.price required)
+
+    .mb-3
+      label(for="stock" class="form-label") Stock
+      input#stock.form-control(type="number" name="stock" value=product.stock required)
+
+    button.btn.btn-primary(type="submit") Actualizar Producto

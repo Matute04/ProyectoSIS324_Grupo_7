@@ -1,0 +1,31 @@
+extends ../layout 
+
+block content
+  h1 Crear Producto
+
+  form(action="/products/add" method="POST" enctype="multipart/form-data")
+    .mb-3
+      label(for="name" class="form-label") Nombre del Producto
+      input#name.form-control(type="text" name="name" required)
+
+    .mb-3
+      label(for="categoryId" class="form-label") Categoría
+      input#categoryId.form-control(type="number" name="categoryId" required)
+
+    .mb-3
+      label(for="size" class="form-label") Talla
+      input#size.form-control(type="text" name="size" required)
+
+    .mb-3
+      label(for="color" class="form-label") Color
+      input#color.form-control(type="text" name="color" required)
+
+    .mb-3
+      label(for="price" class="form-label") Precio
+      input#price.form-control(type="number" step="0.01" name="price" required)
+
+    .mb-3
+      label(for="stock" class="form-label") Stock
+      input#stock.form-control(type="number" name="stock" required)
+
+    button.btn.btn-primary(type="submit") Crear Producto

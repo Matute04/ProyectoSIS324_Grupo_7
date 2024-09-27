@@ -1,0 +1,18 @@
+extends ../layout 
+
+block content
+  h1 Detalles del Producto
+
+  .card
+    .card-body
+      h5.card-title #{product.name}
+      h6.card-subtitle.text-muted Categoría: #{product.categoryId}
+      p.card-text Talla: #{product.size}
+      p.card-text Color: #{product.color}
+      p.card-text Precio: #{product.price} USD
+      p.card-text Stock: #{product.stock} unidades
+      p.card-text Última actualización: #{product.updatedAt}
+      
+      a(href=`/products/${product.id}/edit` class="btn btn-warning") Editar
+      form(action=`/products/${product.id}/delete` method="POST" class="d-inline ms-2")
+        button(type="submit" class="btn btn-danger") Eliminar

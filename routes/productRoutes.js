@@ -1,27 +1,21 @@
-const express = require('express');
+const express = require('express'); 
 const router = express.Router();
 const { 
-    index,
-    createProductController, 
-    getProductByIdController, 
-    getAllProductsController, 
-    updateProductController, 
-    deleteProductController 
+    index,           // Mostrar todos los productos
+    showProduct,     // Mostrar un producto por ID
+    addProductForm,  // Formulario para añadir un producto
+    addProduct,      // Añadir un nuevo producto
+    editProductForm, // Formulario para editar un producto existente
+    editProduct,     // Actualizar un producto
+    removeProduct    // Eliminar un producto
 } = require('../controllers/productController');
 
-// Obtener todos los productos
-router.get('/', index); // Cambiado de '/products' a '/'
-
-// Crear un nuevo producto
-router.post('/add', createProductController); // Cambiado de '/products' a '/'
-
-// Obtener un producto por ID
-router.get('/:id', getProductByIdController); // Cambiado de '/products/:id' a '/:id'
-
-// Actualizar un producto por ID
-router.put('/:id', updateProductController); // Cambiado de '/products/:id' a '/:id'
-
-// Eliminar un producto por ID
-router.delete('/:id', deleteProductController); // Cambiado de '/products/:id' a '/:id'
+router.get('/', index);
+router.get('/add', addProductForm);
+router.post('/add', addProduct);
+router.get('/:id', showProduct);
+router.get('/:id/edit', editProductForm);
+router.post('/:id/edit', editProduct);
+router.post('/:id/delete', removeProduct);
 
 module.exports = router;
